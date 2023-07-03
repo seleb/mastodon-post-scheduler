@@ -40,6 +40,7 @@ async function onCancel(event) {
 		await updateScheduledPosts();
 	} catch (err) {
 		console.error(err);
+		// eslint-disable-next-line no-alert
 		window.alert(`Error canceling post: ${err.message} (see console for details)`);
 	}
 }
@@ -111,6 +112,7 @@ async function schedulePost() {
 		});
 	} catch (err) {
 		console.error(err);
+		// eslint-disable-next-line no-alert
 		window.alert(`Error scheduling post: ${err.message} (see console for details)`);
 	}
 }
@@ -119,12 +121,16 @@ document.querySelector('#formPost').addEventListener('submit', async event => {
 	event.preventDefault();
 
 	if (event.submitter.value === 'refresh posts') {
+		// eslint-disable-next-line no-param-reassign
 		event.submitter.disabled = true;
 		await updateScheduledPosts();
+		// eslint-disable-next-line no-param-reassign
 		event.submitter.disabled = false;
 	} else if (event.submitter.value === 'schedule new post') {
+		// eslint-disable-next-line no-param-reassign
 		event.submitter.disabled = true;
 		await schedulePost();
+		// eslint-disable-next-line no-param-reassign
 		event.submitter.disabled = false;
 
 		elForm.querySelector('#cw').value = '';
