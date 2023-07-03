@@ -15,4 +15,4 @@ a basic web ui for scheduling posts on mastodon
 - posts scheduled with this tool use your default settings for post visibility and language
 - instances have their own post length/attachment limits, which this tool does not check for you
 - this tool does not store any data: it fetches and posts on your behalf, but the actual scheduling is handled by your instance
-- when posts scheduled in the near future, mastodon may post them immediately instead of scheduling them (default is <5min)
+- when posts are scheduled in the near future, your instance may post them immediately instead of scheduling them (default is <5min)
