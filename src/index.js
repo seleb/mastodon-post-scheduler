@@ -41,7 +41,7 @@ async function onCancel(event) {
 	} catch (err) {
 		console.error(err);
 		// eslint-disable-next-line no-alert
-		window.alert(`Error canceling post: ${err.message} (see console for details)`);
+		window.alert(`error canceling post: ${err.message} (see console for details)`);
 	}
 }
 
@@ -52,7 +52,7 @@ async function updateScheduledPosts() {
 			elScheduledPosts.innerHTML = '<li>loading...</li>';
 			const posts = await getScheduledPosts(fields.instance, fields.token);
 			if (!posts.length) {
-				elScheduledPosts.innerHTML = `<li>No scheduled posts</li>`;
+				elScheduledPosts.innerHTML = `<li>no scheduled posts</li>`;
 				return;
 			}
 
@@ -91,10 +91,10 @@ async function updateScheduledPosts() {
 			});
 		} catch (err) {
 			console.error(err);
-			elScheduledPosts.innerHTML = `<li>Error fetching posts: ${err.message} (see console for details)</li>`;
+			elScheduledPosts.innerHTML = `<li>error fetching posts: ${err.message} (see console for details)</li>`;
 		}
 	} else {
-		elScheduledPosts.innerHTML = '<li>Instance + access token required to fetch posts</li>';
+		elScheduledPosts.innerHTML = '<li>instance + access token required to fetch posts</li>';
 	}
 }
 
@@ -102,7 +102,7 @@ async function schedulePost() {
 	try {
 		const fields = getFields();
 
-		if (!fields.scheduledAt) throw new Error('No scheduled date set');
+		if (!fields.scheduledAt) throw new Error('no scheduled date set');
 
 		await postToot(fields.instance, fields.token, {
 			scheduledAt: fields.scheduledAt,
@@ -113,7 +113,7 @@ async function schedulePost() {
 	} catch (err) {
 		console.error(err);
 		// eslint-disable-next-line no-alert
-		window.alert(`Error scheduling post: ${err.message} (see console for details)`);
+		window.alert(`error scheduling post: ${err.message} (see console for details)`);
 	}
 }
 
