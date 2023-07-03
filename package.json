@@ -1,0 +1,52 @@
+{
+	"private": true,
+	"name": "mastodon-post-scheduler",
+	"version": "1.0.0",
+	"description": "Mastodon Post Scheduler",
+	"scripts": {
+		"postversion": "npm run build",
+		"start": "vite --port 80",
+		"build": "vite build",
+		"serve": "vite preview",
+		"lint": "eslint \"src/**/*.js\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/seleb/mastodon-post-scheduler.git"
+	},
+	"author": "Sean S. LeBlanc <sean.s.leblanc@gmail.com>",
+	"license": "MIT",
+	"release": {
+		"plugins": [
+			"@semantic-release/commit-analyzer",
+			"@semantic-release/release-notes-generator",
+			"@semantic-release/changelog",
+			"@semantic-release/npm",
+			"@semantic-release/github",
+			[
+				"@semantic-release/git",
+				{
+					"assets": [
+						"docs/**/*",
+						"CHANGELOG.md",
+						"package.json",
+						"package-lock.json"
+					]
+				}
+			]
+		]
+	},
+	"devDependencies": {
+		"eslint": "^8.44.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-prettier": "^4.2.1",
+		"masto": "^5.11.3",
+		"prettier": "^2.8.8",
+		"rollup-plugin-visualizer": "^5.9.2",
+		"sass": "^1.63.6",
+		"vite": "^4.3.9",
+		"vite-plugin-markdown": "^2.2.0-2"
+	}
+}
