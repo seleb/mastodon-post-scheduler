@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.1.0...v1.2.0) (2023-07-03)
+
+
+### Bug Fixes
+
+* clarify language in readme ([64425c7](https://github.com/seleb/mastodon-post-scheduler/commit/64425c7c9ccb84181d2fce02f4d0beee1da8127f))
+* only reset form if post succeeds ([33e67a5](https://github.com/seleb/mastodon-post-scheduler/commit/33e67a577a0cdbedd32132ad5672075ac4ae86bc))
+
+
+### Features
+
+* improve layout of media on scheduled posts ([ebd4166](https://github.com/seleb/mastodon-post-scheduler/commit/ebd4166f91fc2ff5d13f9226f08da155d76e6f7f))
+
 # [1.1.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.0.0...v1.1.0) (2023-07-03)
 
 
