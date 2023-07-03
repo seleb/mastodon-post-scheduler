@@ -1,3 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+	<title>Mastodon Post Scheduler</title>
+	<meta name="author" content="Sean S. LeBlanc" />
+	<meta name="description" content="a basic web ui for scheduling posts on mastodon" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://seleb.github.io/mastodon-post-scheduler" />
+	<meta property="og:title" content="Mastodon Post Scheduler" />
+	<meta property="og:description" content="a basic web ui for scheduling posts on mastodon" />
+
+	<link rel="stylesheet" href="./style.scss" type="text/css" />
+</head>
+
+<body>
+	<div id="preloader">
+		<p class="preloader_text">Loading...</p>
+		<noscript>you must enable javascript to use this tool.</noscript>
+	</div>
+
+	<div id="about"></div>
+
+	<hr />
+
+	<h2>schedule new post</h2>
+	<form id="formPost">
+		<label>
+			instance
+			<input required id="instance" name="instance" autocomplete="on" type="text"
+				placeholder="E.g. https://mastodon.social" />
+		</label>
+
+		<label>
+			access token
+			<input required id="token" name="token" autocomplete="current-password" type="password" />
+		</label>
+
+		<label>
+			scheduled at
+			<input id="scheduledAt" name="scheduledAt" type="datetime-local" />
+		</label>
+
+		<label>
+			content warning
+			<input id="cw" name="cw" autocomplete="off" type="text" />
+		</label>
+
+		<label>
+			post text
+			<textarea id="post" name="post" autocomplete="off"></textarea>
+		</label>
+
+		<input type="submit" name="submit" value="schedule new post" />
+		<input type="submit" name="submit" value="refresh posts" />
+	</form>
+
+	<h2>scheduled posts</h2>
+	<ul id="scheduledPosts">
+		<li>not loaded</li>
+	</ul>
+
+	<footer>
+		<div>mastodon-post-scheduler v<span id="version">?</span></div>
+		<div>made by <a href="https://seans.site" target="_blank" rel="noopener noreferrer">sean</a></div>
+		<div><a href="https://github.com/seleb/mastodon-post-scheduler" target="_blank"
+				rel="noopener noreferrer">source</a></div>
+	</footer>
+
+	<script type="module" src="./index.js"></script>
+</body>
+
 </html>

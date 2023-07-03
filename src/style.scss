@@ -1,1 +1,100 @@
+:root {
+	color-scheme: light;
+	color: #000;
+	--light-gray: #ccc;
+	--dark-glass: #{fade-out(#000, 0.9)};
+	--extra-dark-glass: #{fade-out(#000, 0.25)};
+	--light-glass: #{fade-out(#fff, 0.7)};
 
+	@media (prefers-color-scheme: dark) {
+		color-scheme: dark;
+		color: #fff;
+		--light-gray: #333;
+		--dark-glass: #{fade-out(#ccc, 0.8)};
+		--extra-dark-glass: #{fade-out(#fff, 0.25)};
+		--light-glass: #{fade-out(#000, 0.8)};
+	}
+}
+
+$breakpoint: 40em;
+
+body {
+	font-family: sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 1rem;
+	background-color: var(--light-gray);
+}
+
+p,
+span,
+li {
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+a {
+	color: inherit;
+	transition: opacity 0.1s ease-out;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
+}
+
+div#preloader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	flex-direction: column;
+	background-color: var(--light-gray);
+	z-index: 100;
+}
+
+header,
+section,
+footer {
+	clear: both;
+	margin-bottom: 1em;
+}
+
+form {
+	font-weight: 300;
+
+	label {
+		display: block;
+		margin: 0;
+		line-height: 2;
+		margin-bottom: 0.5rem;
+
+		input,
+		textarea {
+			color: inherit;
+			display: block;
+			box-sizing: border-box;
+			min-height: 2em;
+			min-width: 2em;
+			max-width: 100%;
+			padding: 0.5rem;
+			font-size: 1em;
+			font-family: monospace;
+			background-color: var(--light-glass);
+			border: 0;
+			tab-size: 2;
+		}
+
+		textarea {
+			width: 100%;
+		}
+	}
+}
+
+footer {
+	p {
+		font-size: 0.75em;
+	}
+}
