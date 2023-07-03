@@ -69,7 +69,15 @@ async function updateScheduledPosts() {
 					${
 						i.mediaAttachments.length
 							? `<ul>
-						${i.mediaAttachments.map(m => `<li>${m}</li>`).join('\n')}
+						${i.mediaAttachments
+							.map(
+								m => `<li>
+							<a href="${m.url}" target="_blank" rel="noopener noreferrer">
+								<img loading="lazy" src="${m.previewUrl}" alt="${m.description}" title="${m.description}" />
+							</a>
+						</li>`
+							)
+							.join('\n')}
 					</ul>`
 							: ''
 					}
