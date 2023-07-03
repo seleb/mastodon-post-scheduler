@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.2.0...v1.3.0) (2023-07-03)
+
+
+### Features
+
+* support post visibility ([a0578c6](https://github.com/seleb/mastodon-post-scheduler/commit/a0578c644ac1a01025349cd9eac777c16b858669))
+
 # [1.2.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.1.0...v1.2.0) (2023-07-03)
 
 
