@@ -113,9 +113,20 @@ document.querySelector('#formPost').addEventListener('submit', async event => {
 	event.preventDefault();
 
 	if (event.submitter.value === 'refresh posts') {
+		event.submitter.disabled = true;
 		await updateScheduledPosts();
+		event.submitter.disabled = false;
 	} else if (event.submitter.value === 'schedule new post') {
+		event.submitter.disabled = true;
 		await schedulePost();
+		event.submitter.disabled = false;
+
+		elForm.querySelector('#cw').value = '';
+		elForm.querySelector('#post').value = '';
+		Array.from(elMedia.querySelectorAll('li'))
+			.slice(0, -1)
+			.map(i => i.remove());
+
 		await updateScheduledPosts();
 	}
 });
