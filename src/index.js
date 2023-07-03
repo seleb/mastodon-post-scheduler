@@ -16,12 +16,10 @@ function getFields() {
 	}
 	const cw = formData.get('cw');
 	const post = formData.get('post');
-	const media = Array.from(elMedia.querySelectorAll('li'))
-		.slice(0, -1)
-		.map(i => ({
-			file: i.file,
-			description: i.querySelector('textarea').value,
-		}));
+	const media = Array.from(elMedia.querySelectorAll('li')).map(i => ({
+		file: i.file,
+		description: i.querySelector('textarea').value,
+	}));
 	return {
 		instance,
 		token,
@@ -123,9 +121,7 @@ document.querySelector('#formPost').addEventListener('submit', async event => {
 
 		elForm.querySelector('#cw').value = '';
 		elForm.querySelector('#post').value = '';
-		Array.from(elMedia.querySelectorAll('li'))
-			.slice(0, -1)
-			.map(i => i.remove());
+		elMedia.innerHTML = '';
 
 		await updateScheduledPosts();
 	}
@@ -159,7 +155,7 @@ elFile.addEventListener('change', event => {
 			preview.textContent = 'no preview available';
 		}
 		elLi.querySelector('div').replaceWith(preview);
-		elMedia.prepend(elLi);
+		elMedia.append(elLi);
 	});
 	elFile.value = null;
 });
