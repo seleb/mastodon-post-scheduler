@@ -24,6 +24,15 @@ body {
 	margin: 0;
 	padding: 1rem;
 	background-color: var(--light-gray);
+	max-width: 40rem;
+	margin-inline: auto;
+}
+
+button,
+input[type="submit"],
+input[type="file"],
+label {
+	cursor: pointer;
 }
 
 p,
@@ -47,7 +56,9 @@ div#preloader {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100vw;
 	height: 100vh;
 	flex-direction: column;
@@ -63,13 +74,25 @@ footer {
 }
 
 form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	@media screen and (min-width: 30rem) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
 	font-weight: 300;
+
+	> .wide {
+		grid-column: span 2;
+	}
 
 	label {
 		display: block;
 		margin: 0;
 		line-height: 2;
-		margin-top: 0.5rem;
 
 		input,
 		textarea {
@@ -79,6 +102,7 @@ form {
 			min-height: 2em;
 			min-width: 2em;
 			max-width: 100%;
+			width: 100%;
 			padding: 0.5rem;
 			font-size: 1em;
 			font-family: monospace;
@@ -93,20 +117,121 @@ form {
 	}
 }
 
-#listMedia,
+#listMedia:empty {
+	display: none;
+}
+
+#listMedia {
+	padding: 0;
+	margin: 0;
+
+	> li {
+		display: grid;
+		grid-template-areas: 
+			"preview title btn"
+			"preview description btn";
+		grid-template-columns: 2rem 1fr auto;
+		gap: 0 0.5rem;
+		margin-bottom: 0.5rem;
+
+		> * {
+			min-width: 0;
+		}
+
+		span {
+			grid-area: title;
+		}
+
+		img,video,audio {
+			grid-area: preview;
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center top;
+		}
+
+		label {
+			grid-area: description;
+		}
+
+		button {
+			grid-area: btn;
+		}
+	}
+}
+
 #scheduledPosts {
-	img,
-	video {
-		display: block;
-		width: 2rem;
-		height: 2rem;
-		object-fit: contain;
-		object-position: center;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		display: grid;
+		grid-template-areas: 
+			"time btn"
+			"post btn"
+			"media btn";
+		grid-template-columns: 1fr auto;
+		gap: 0 0.5rem;
+		margin-bottom: 0.5rem;
+		border-bottom: solid 1px var(--dark-glass);
+
+		> * {
+			min-width: 0;
+		}
+
+		> time {
+			grid-area: time;
+			font-size: 0.9em;
+		}
+
+		> div,
+		> details {
+			grid-area: post;
+		}
+
+		> ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			grid-area: media;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1px;
+
+			> * {
+				flex: 1;
+			}
+
+			img,video,audio {
+				display: block;
+				width: 100%;
+				height: 100%;
+				max-width: 4rem;
+				max-height: 4rem;
+				object-fit: contain;
+				object-position: center top;
+			}
+		}
+
+		label {
+			grid-area: description;
+		}
+
+		button {
+			grid-area: btn;
+		}
 	}
 }
 
 footer {
-	p {
-		font-size: 0.75em;
+	font-size: 0.9em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	>*:not(:first-child)::before {
+		content: '•';
+		margin-inline: 0.5rem;
 	}
 }

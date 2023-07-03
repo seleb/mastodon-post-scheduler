@@ -149,7 +149,7 @@ const elFile = document.querySelector('#media');
 elFile.addEventListener('change', event => {
 	Array.from(event.currentTarget.files).forEach(i => {
 		const elLi = document.createElement('li');
-		elLi.innerHTML = `${i.name} (${i.type}) <div></div> <label>description <textarea></textarea></label> <button type="button">remove</button>`;
+		elLi.innerHTML = `<span>${i.name} (${i.type})</span> <div></div> <label>description <textarea></textarea></label> <button type="button">remove</button>`;
 		elLi.file = i;
 		elLi.querySelector('button').addEventListener('click', () => {
 			elLi.remove();
