@@ -16,9 +16,12 @@ function getFields() {
 	}
 	const cw = formData.get('cw');
 	const post = formData.get('post');
-	let media = formData.get('media');
-	if (!media.length) media = [media];
-	media = media.filter(i => i?.size);
+	const media = Array.from(elMedia.querySelectorAll('li'))
+		.slice(0, -1)
+		.map(i => ({
+			file: i.file,
+			description: i.querySelector('textarea').value,
+		}));
 	return {
 		instance,
 		token,
@@ -98,7 +101,7 @@ async function schedulePost() {
 			scheduledAt: fields.scheduledAt,
 			spoilerText: fields.cw,
 			status: fields.post,
-			media: [],
+			media: fields.media,
 		});
 	} catch (err) {
 		console.error(err);
@@ -119,5 +122,35 @@ document.querySelector('#formPost').addEventListener('submit', async event => {
 
 document.querySelector('#about').innerHTML = htmlReadme;
 document.querySelector('#version').textContent = pkg.version;
+
+const elMedia = document.querySelector('#listMedia');
+const elFile = document.querySelector('#media');
+elFile.addEventListener('change', event => {
+	Array.from(event.currentTarget.files).forEach(i => {
+		const elLi = document.createElement('li');
+		elLi.innerHTML = `${i.name} (${i.type}) <div></div> <label>description <textarea></textarea></label> <button type="button">remove</button>`;
+		elLi.file = i;
+		elLi.querySelector('button').addEventListener('click', () => {
+			elLi.remove();
+		});
+		let preview;
+		if (i.type.startsWith('image')) {
+			preview = document.createElement('img');
+			preview.src = URL.createObjectURL(i);
+		} else if (i.type.startsWith('video')) {
+			preview = document.createElement('video');
+			preview.src = URL.createObjectURL(i);
+		} else if (i.type.startsWith('audio')) {
+			preview = document.createElement('audio');
+			preview.src = URL.createObjectURL(i);
+		} else {
+			preview = document.createElement('div');
+			preview.textContent = 'no preview available';
+		}
+		elLi.querySelector('div').replaceWith(preview);
+		elMedia.prepend(elLi);
+	});
+	elFile.value = null;
+});
 updateScheduledPosts();
 document.querySelector('#preloader').remove();
