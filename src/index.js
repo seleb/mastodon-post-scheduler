@@ -110,6 +110,10 @@ async function schedulePost() {
 			status: fields.post,
 			media: fields.media,
 		});
+
+		elForm.querySelector('#cw').value = '';
+		elForm.querySelector('#post').value = '';
+		elMedia.innerHTML = '';
 	} catch (err) {
 		console.error(err);
 		// eslint-disable-next-line no-alert
@@ -132,10 +136,6 @@ document.querySelector('#formPost').addEventListener('submit', async event => {
 		await schedulePost();
 		// eslint-disable-next-line no-param-reassign
 		event.submitter.disabled = false;
-
-		elForm.querySelector('#cw').value = '';
-		elForm.querySelector('#post').value = '';
-		elMedia.innerHTML = '';
 
 		await updateScheduledPosts();
 	}
