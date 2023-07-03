@@ -55,6 +55,17 @@
 			<input id="scheduledAt" name="scheduledAt" type="datetime-local" />
 		</label>
 
+		<label>
+			post visibility
+			<select id="visibility" name="visibility">
+				<option value="public" title="visible to everyone, shown in public timelines" selected>public</option>
+				<option value="unlisted" title="visible to public, but not included in public timelines">unlisted
+				</option>
+				<option value="private" title="visible to followers only, and to any mentioned users">private</option>
+				<option value="direct" title="visible only to mentioned users">direct</option>
+			</select>
+		</label>
+
 		<div class="wide">
 			<label for="media">attachments</label>
 			<ol id="listMedia"></ol>

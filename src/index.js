@@ -16,6 +16,7 @@ function getFields() {
 	}
 	const cw = formData.get('cw');
 	const post = formData.get('post');
+	const visibility = formData.get('visibility');
 	const media = Array.from(elMedia.querySelectorAll('li')).map(i => ({
 		file: i.file,
 		description: i.querySelector('textarea').value,
@@ -26,6 +27,7 @@ function getFields() {
 		scheduledAt,
 		cw,
 		post,
+		visibility,
 		media,
 	};
 }
@@ -64,7 +66,14 @@ async function updateScheduledPosts() {
 					const date = new Date(i.scheduledAt);
 					return `
 				<li>
-					<time datetime=${date.toISOString()}>${date.toString()}</time>
+					<i title="${i.params.visibility}">${
+						{
+							public: '🌎',
+							unlisted: '🔓',
+							private: '🔒',
+							direct: '@',
+						}[i.params.visibility]
+					}</i> <time datetime=${date.toISOString()}>${date.toString()}</time>
 					${i.params.spoilerText ? `<details><summary>${i.params.spoilerText}</summary>${i.params.text}</details>` : `<div>${i.params.text}</div>`}
 					
 					${
@@ -108,6 +117,7 @@ async function schedulePost() {
 			scheduledAt: fields.scheduledAt,
 			spoilerText: fields.cw,
 			status: fields.post,
+			visibility: fields.visibility,
 			media: fields.media,
 		});
 

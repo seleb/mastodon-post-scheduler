@@ -95,6 +95,7 @@ form {
 		line-height: 2;
 
 		input,
+		select,
 		textarea {
 			color: inherit;
 			display: block;
@@ -168,16 +169,21 @@ form {
 	> li {
 		display: grid;
 		grid-template-areas: 
-			"time btn"
-			"post btn"
-			"media btn";
-		grid-template-columns: 1fr auto;
+			"visibility time btn"
+			"post post btn"
+			"media media btn";
+		grid-template-columns: auto 1fr auto;
 		gap: 0 0.5rem;
 		margin-bottom: 0.5rem;
 		border-bottom: solid 1px var(--dark-glass);
 
 		> * {
 			min-width: 0;
+		}
+
+		> i {
+			grid-area: visibility;
+			font-style: normal;
 		}
 
 		> time {

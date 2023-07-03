@@ -20,7 +20,7 @@ export async function getScheduledPosts(url, accessToken) {
 	return statuses;
 }
 
-export async function postToot(url, accessToken, { scheduledAt, spoilerText, status, media }) {
+export async function postToot(url, accessToken, { scheduledAt, spoilerText, status, visibility, media }) {
 	const client = await getClient(url, accessToken);
 
 	let mediaIds;
@@ -43,12 +43,14 @@ export async function postToot(url, accessToken, { scheduledAt, spoilerText, sta
 		scheduledAt,
 		spoilerText,
 		status,
+		visibility,
 		mediaIds,
 	});
 	const posted = await client.v1.statuses.create({
 		scheduled_at: scheduledAt,
 		spoilerText,
 		status,
+		visibility,
 		mediaIds,
 	});
 	console.log('posted', posted);
