@@ -44,14 +44,12 @@ export async function postToot(url, accessToken, { scheduledAt, spoilerText, sta
 		spoilerText,
 		status,
 		mediaIds,
-		visibility: 'direct',
 	});
 	const posted = await client.v1.statuses.create({
 		scheduled_at: scheduledAt,
 		spoilerText,
 		status,
 		mediaIds,
-		visibility: 'direct', // TODO: remove
 	});
 	console.log('posted', posted);
 }
