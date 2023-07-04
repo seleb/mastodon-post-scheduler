@@ -1,13 +1,16 @@
 import { login } from 'masto';
 
 let masto;
+let hash;
 async function getClient(url, accessToken) {
-	if (masto) return masto;
+	const newHash = `${url}:${accessToken}`;
+	if (masto && hash === newHash) return masto;
 
 	masto = await login({
 		url,
 		accessToken,
 	});
+	hash = newHash;
 	return masto;
 }
 
