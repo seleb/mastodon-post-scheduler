@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/seleb/mastodon-post-scheduler/compare/v1.3.0...v1.3.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* reusing client after credentials have changed ([c2ac142](https://github.com/seleb/mastodon-post-scheduler/commit/c2ac14260d17431a80a8d1a3922831e2b422832a))
+
 # [1.3.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.2.0...v1.3.0) (2023-07-03)
 
 
