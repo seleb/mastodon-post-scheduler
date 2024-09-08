@@ -1,4 +1,4 @@
-import { login } from 'masto';
+import { createRestAPIClient } from 'masto';
 
 let masto;
 let hash;
@@ -6,7 +6,7 @@ async function getClient(url, accessToken) {
 	const newHash = `${url}:${accessToken}`;
 	if (masto && hash === newHash) return masto;
 
-	masto = await login({
+	masto = await createRestAPIClient({
 		url,
 		accessToken,
 	});
@@ -32,7 +32,7 @@ export async function postToot(url, accessToken, { scheduledAt, spoilerText, sta
 		mediaIds = [];
 		await media.reduce(async (acc, i) => {
 			console.log(i);
-			const attachment = await client.v2.mediaAttachments.create({
+			const attachment = await client.v2.media.create({
 				file: i.file,
 				description: i.description,
 			});
@@ -62,6 +62,6 @@ export async function postToot(url, accessToken, { scheduledAt, spoilerText, sta
 export async function cancelScheduledPost(url, accessToken, id) {
 	const client = await getClient(url, accessToken);
 
-	const canceled = await client.v1.scheduledStatuses.remove(id);
+	const canceled = await client.v1.scheduledStatuses.$select(id).remove();
 	console.log('canceled', canceled);
 }

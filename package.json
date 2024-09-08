@@ -42,7 +42,7 @@
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-prettier": "^4.2.1",
-		"masto": "^5.11.3",
+		"masto": "^6.8.0",
 		"prettier": "^2.8.8",
 		"rollup-plugin-visualizer": "^5.9.2",
 		"sass": "^1.63.6",
