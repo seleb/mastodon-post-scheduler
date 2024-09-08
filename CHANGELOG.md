@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.3.1...v1.4.0) (2024-09-08)
+
+
+### Features
+
+* add note explaining "in reply to" field ([63912c1](https://github.com/seleb/mastodon-post-scheduler/commit/63912c19a7c88bb0b8a427ee09d59920b9d1e248))
+* extract reply to id from post url ([2ea34d6](https://github.com/seleb/mastodon-post-scheduler/commit/2ea34d623f8fcd0919e5f78c408cf768b88694f1))
+* support "in reply to" field addresses [#1](https://github.com/seleb/mastodon-post-scheduler/issues/1) ([bc02171](https://github.com/seleb/mastodon-post-scheduler/commit/bc02171e31463134bede9de5c8b8cb6e467e84eb))
+
 ## [1.3.1](https://github.com/seleb/mastodon-post-scheduler/compare/v1.3.0...v1.3.1) (2023-07-04)
 
 
