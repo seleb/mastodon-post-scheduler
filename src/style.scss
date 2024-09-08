@@ -74,6 +74,7 @@ footer {
 }
 
 form {
+	font-weight: 300;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
@@ -83,7 +84,6 @@ form {
 		grid-template-columns: 1fr 1fr;
 	}
 
-	font-weight: 300;
 
 	> .wide {
 		grid-column: span 2;
