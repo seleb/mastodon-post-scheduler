@@ -16,3 +16,4 @@ a basic web ui for scheduling posts on mastodon
 - instances have their own post length/attachment limits, which this tool does not check for you
 - this tool does not store any data: it fetches and posts on your behalf, but the actual scheduling is handled by your instance
 - when posts are scheduled in the near future, your instance may post them immediately instead of scheduling them (default is <5min)
+- the "in reply to" field can be post URL or ID, but if it's from another instance, make sure to use the reference from your own instance instead of theirs
