@@ -21,7 +21,7 @@ function getFields() {
 		file: i.file,
 		description: i.querySelector('textarea').value,
 	}));
-	const inReplyToId = formData.get('inReplyToId');
+	const inReplyToId = formData.get('inReplyToId').replace(/(.*\/)?(\d+)$/, '$2');
 	return {
 		instance,
 		token,
