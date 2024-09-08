@@ -1,7 +1,8 @@
 import { createRestAPIClient } from 'masto';
 
+/** @type {ReturnType<createRestAPIClient>} */
 let masto;
-let hash;
+let hash = '';
 async function getClient(url, accessToken) {
 	const newHash = `${url}:${accessToken}`;
 	if (masto && hash === newHash) return masto;
