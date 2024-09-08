@@ -21,6 +21,7 @@ function getFields() {
 		file: i.file,
 		description: i.querySelector('textarea').value,
 	}));
+	const inReplyToId = formData.get('inReplyToId');
 	return {
 		instance,
 		token,
@@ -29,6 +30,7 @@ function getFields() {
 		post,
 		visibility,
 		media,
+		inReplyToId,
 	};
 }
 
@@ -119,6 +121,7 @@ async function schedulePost() {
 			status: fields.post,
 			visibility: fields.visibility,
 			media: fields.media,
+			inReplyToId: fields.inReplyToId,
 		});
 
 		elForm.querySelector('#cw').value = '';

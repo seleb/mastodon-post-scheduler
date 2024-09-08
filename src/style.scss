@@ -115,6 +115,10 @@ form {
 		textarea {
 			width: 100%;
 		}
+
+		&:last-of-type {
+			grid-column: span 2;
+		}
 	}
 }
 
