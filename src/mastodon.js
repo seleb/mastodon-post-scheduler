@@ -32,6 +32,7 @@ export async function postToot(url, accessToken, { scheduledAt, spoilerText, sta
 		console.log('uploading media');
 		mediaIds = [];
 		await media.reduce(async (acc, i) => {
+			await acc;
 			console.log(i);
 			const attachment = await client.v2.media.create({
 				file: i.file,
