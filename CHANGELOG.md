@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/seleb/mastodon-post-scheduler/compare/v1.4.0...v1.4.1) (2025-01-05)
+
+
+### Bug Fixes
+
+* add note about attachment order ([e1ad493](https://github.com/seleb/mastodon-post-scheduler/commit/e1ad493bce483d30bd0b11ece819c3ec260e794d)), closes [#2](https://github.com/seleb/mastodon-post-scheduler/issues/2)
+
 # [1.4.0](https://github.com/seleb/mastodon-post-scheduler/compare/v1.3.1...v1.4.0) (2024-09-08)
 
 
