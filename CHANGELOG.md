@@ -1,3 +1,11 @@
+## [1.4.2](https://github.com/seleb/mastodon-post-scheduler/compare/v1.4.1...v1.4.2) (2025-01-05)
+
+
+### Bug Fixes
+
+* properly wait for each attachment to finish uploading (closes [#2](https://github.com/seleb/mastodon-post-scheduler/issues/2)) ([bafb44c](https://github.com/seleb/mastodon-post-scheduler/commit/bafb44c8a4a72306090756802d89313e5e618b8a))
+* remove ui note about upload order issue ([4839a32](https://github.com/seleb/mastodon-post-scheduler/commit/4839a3292164577b74718f279f2c35c907dcc628))
+
 ## [1.4.1](https://github.com/seleb/mastodon-post-scheduler/compare/v1.4.0...v1.4.1) (2025-01-05)
 
 
