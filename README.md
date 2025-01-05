@@ -17,4 +17,3 @@ a basic web ui for scheduling posts on mastodon
 - this tool does not store any data: it fetches and posts on your behalf, but the actual scheduling is handled by your instance
 - when posts are scheduled in the near future, your instance may post them immediately instead of scheduling them (default is <5min)
 - the "in reply to" field can be post URL or ID, but if it's from another instance, make sure to use the reference from your own instance instead of theirs
-- if there are multiple media attachments, they may be included out of order ([see here](https://github.com/seleb/mastodon-post-scheduler/issues/2) for more info)
